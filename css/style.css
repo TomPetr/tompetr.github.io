@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #3b3a3a;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 100%;
+    line-height: 1.6875;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix:before {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: table;
+}
