@@ -1,18 +1,11 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #3b3a3a;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 100%;
-    line-height: 1.6875;
-}
-
+/* for all elements */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* float clearing */
 .clearfix:before {
     content: " ";
     display: table;
@@ -23,6 +16,20 @@ body {
     content: " ";
     display: table;
 }
+
+/* body */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #3b3a3a;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 100%;
+    line-height: 1.6875;
+}
+
+
+
+
 
 /* top nav */
 #nav-main {
