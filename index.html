@@ -2,251 +2,195 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <!-- description -->
-  <title>Tomas' Web of Creativity</title>
-  <!-- stylesheets -->
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="icon" href="favicon.ico" type="image/ico" sizes="16x16" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page</title>
+    <link rel="icon" href="img/logo.png" type="image/ico" sizes="16x16" />
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arsenal&display=swap" rel="stylesheet">
+    <style>
+        /* for all elements */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
+        /* getting rid of gap under the img */
+        figure {
+            font-size: 0;
+        }
+
+        /* float clearing */
+        .clearfix:before {
+            content: " ";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+            content: " ";
+            display: table;
+        }
+
+        /* body */
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #2C2C2C;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            line-height: 1.6875;
+        }
+
+        header {
+            height: 5rem;
+            width: 100%;
+            background-color: #374148;
+
+        }
+
+        #home>h2,
+        #home>h3 {
+            font-family: 'Anton', sans-serif;
+            letter-spacing: 0.1rem;
+            text-shadow: -1px 1px 0 #000,
+                1px 1px 0 #000,
+                1px -1px 0 #000,
+                -1px -1px 0 #000;
+            color: #EEEEEE;
+            text-align: center;
+        }
+
+
+        #hero {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #hero>img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            bottom: 0;
+        }
+
+        #hero>div {
+            position: absolute;
+            z-index: 1;
+            color: #FFFFFF;
+            font-size: 2rem;
+            top: 25%;
+            width: 100%;
+            text-align: left;
+            font-weight: 300;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #hero>div>img {
+            height: 150px;
+            width: 150px;
+
+        }
+
+        #hero>div>p {
+            margin-left: 15px;
+            font-family: 'Anton', sans-serif;
+            letter-spacing: 0.1rem;
+            text-shadow: -1px 1px 0 #000,
+                1px 1px 0 #000,
+                1px -1px 0 #000,
+                -1px -1px 0 #000;
+            height: 150px;
+            padding-left: 15px;
+            border-left: solid 3px #F4364C;
+        }
+
+        .red {
+            color: #F4364C;
+        }
+
+        #home-page-menu {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #home-page-menu>figure {
+            flex: 0 0 33.33333%;
+        }
+
+        #home-page-menu>figure>img {
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            height: 15rem;
+            background-color: #2C2C2C;
+
+        }
+    </style>
 </head>
 
 <body>
-  <div class="page-wrapper">
-    <!-- 
-    ===============
-    Header Sections
-    ===============
-    -->
     <header>
-      <!-- top navigation -->
-      <nav id="nav-main" class="clearfix">
-        <ul id="nav-main-menu">
-          <li><a class="active" href="index.html">home</a></li>
-          <li><a href="./pages/codes.html">codes</a></li>
-          <li><a href="./pages/apps.html">apps</a></li>
-          <li><a href="./pages/faces.html">faces</a></li>
-        </ul>
-      </nav>
-      <!-- page intro -->
-      <section id="page-intro">
-        <div class="brand clearfix">
-          <div class="brand-logo-frame">
-            <a href="index.html">
-              <img src="images/logo.png" alt="logo" class="brand-logo-img" />
-            </a>
-          </div>
-          <div class="brand-title-frame">
-            <div class="brand-title">
-              <h1>Tomas' Web of Creativity</h1>
-            </div>
-          </div>
-        </div>
-        <div class="brand brand-info clearfix">
-          <div class="brand-face-frame">
-            <img src="images/my_photo.jpg" class="brand-face-img" alt="My Photo" />
-          </div>
-          <!-- intro paragraphs -->
-          <div class="info-content">
-            <!-- intro paragraph #1 -->
-            <p>
-              Hello, my name is Tomas Petr. My interests include web app
-              development, photography, creating Photoshop fantasies, and
-              observing human behavior to better understand people. I strive
-              to describe such behaviors in the short stories I write.
-            </p>
-            <!-- intro paragraph #2 -->
-            <p>
-              I live in Salt Lake City now. Prior to migrating to the U.S.
-              from my native Czech Republic, I studied mechanical engineering.
-              I’m currently studying web development at Salt Lake Community
-              College. I want to learn how to build modern Websites using
-              HTLM5, CSS, and JavaScript.
-            </p>
-          </div>
-        </div>
-      </section>
+        <!-- Melissa's code comes here -->
+        <p style="text-align: center; width: 100%; font-size: 1.5rem; color:aliceblue">Header's Code Comes
+            Here. </p>
     </header>
+    <main id="home">
+        <section id="hero">
+            <img src="img/banner.png" alt="">
+            <div>
+                <img src="img/logo_lrd.png" alt="">
+                <p>CAST AND MACHINED <br />ALUMINUM COMPONENTS <br /><span class="red"> MADE IN THE USA</span></p>
+            </div>
+        </section>
+        <h2>Complex Manufacturing Solutions</h2>
+        <h3>Custom-crafted Customer Service</h3>
+        <section id="home-page-menu">
+            <figure><img src="./img/perm-mold-casting.jpg" alt="Permanent mold aluminum casting"
+                    class="home-page-thumb"></figure>
+            <figure><img src="./img/permanent-mold-casting.jpg" alt="Low Pressure permanent mold casting"
+                    class="home-page-thumb"></figure>
+            <figure><img src="./img/high-pressure.jpg" alt="High pressure die casting" class="home-page-thumb"></figure>
+            <figure><img src="./img/milling.jpg" alt="Milling" class="home-page-thumb"></figure>
+            <figure><img src="./img/turning.jpg" alt="Turning" class="home-page-thumb"></figure>
+            <figure><img src="./img/x-ray.jpg" alt="Real time X-ray" class="home-page-thumb"></figure>
 
-    <!-- 
-===============
-Main Content Sections
-===============
--->
-
-    <main id="main-content-wrapper">
-      <!-- Page's nav thumbs-->
-      <section id="main-section" class="clearfix">
-        <!-- Thumb #1-->
-        <div class="columns-3">
-          <div class="columns-3-frame">
-            <a href="./pages/codes.html" class="nav-button" title="codes page">
-              <h2 class="block-inline">codes</h2>
-              <figure class="block-inline">
-                <img src="images/codes.png" alt="Codes" class="column-button column-background" />
-              </figure>
-            </a>
-          </div>
-        </div>
-        <!-- Thumb #2-->
-        <div class="columns-3">
-          <div class="columns-3-frame">
-            <a href="./pages/apps.html" class="nav-button" title="apps page">
-              <figure>
-                <img src="images/apps.png" alt="Apps" class="column-button column-background" />
-              </figure>
-              <h2 style="margin-bottom: 0; margin-top: 2%;">apps</h2>
-            </a>
-          </div>
-        </div>
-        <!-- Thumb #3-->
-        <div class="columns-3">
-          <div class="columns-3-frame">
-            <a href="./pages/faces.html" class="nav-button" title="faces page">
-              <h2>faces</h2>
-              <figure>
-                <img src="images/faces.jpg" alt="Photos" class="column-button column-background" />
-              </figure>
-            </a>
-          </div>
-        </div>
-      </section>
+        </section>
     </main>
-    <!-- 
-            ===============
-            Footer Sections
-            ===============
-            -->
-    <footer id="footer-section" class="clearfix">
-      <!-- Left Column -->
-      <div id="footer-left">
-        <h2>Contact</h2>
-
-        <form action="/action_page.php" method="POST" target="_self" id="contact-form" width="100%">
-          <fieldset>
-            <legend>Hire Me!</legend>
-
-            <input type="text" name="first-name" id="first-name" placeholder="Your First Name..." required />
-            <br /><br />
-            <input type="text" name="last-name" id="last-name" placeholder="Your Last Name..." required /><br /><br />
-            <input type="email" name="email" id="email" placeholder="Your Email..." required /><br /><br />
-            <input type="tel" name="phone" id="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              required /><br /><br />
-            <input type="text" name="subject" id="subject" placeholder="Subject..." /><br /><br />
-            <textarea name="message" id="message" rows="10">
-Write me a message...</textarea>
-
-            <fieldset>
-              <legend>I Want to Hire:</legend>
-              <input type="radio" name="hire" id="full" checked />
-              <label for="full">Full Stock Developer</label><br />
-              <input type="radio" name="hire" id="front" />
-              <label for="front">Front End Developer</label><br />
-              <input type="radio" name="hire" id="back" />
-              <label for="back">Back End Developer</label><br />
-              <input type="radio" name="hire" id="hi" />
-              <label for="hi">I Just Want to Say Hi</label><br />
-            </fieldset>
-            <fieldset>
-              <legend>This Project Requires:</legend>
-              <input type="checkbox" name="basic" id="basisc" />
-              <label for="basic">HTML & CSS</label><br />
-              <input type="checkbox" name="javascript" id="javascript" />
-              <label for="javascript">JavaScript</label><br />
-              <input type="checkbox" name="node" id="graphic" />
-              <label for="graphic">Photoshop or Illustrator</label><br />
-              <input type="checkbox" name="php" id="php" />
-              <label for="php">PHP & MySQL</label><br />
-              <input type="checkbox" name="react" id="react" checked />
-              <label for="react">React.js</label><br />
-              <input type="text" name="other" id="other" placeholder="Other..." />
-            </fieldset>
-            <fieldset>
-              <legend>I Prefer To Communicate Via:</legend>
-              <select name="com" id="com">
-                <option value="phone-call">Phone Calls</option>
-                <option value="text-mes">Text Messages</option>
-                <option value="emails" Emails>Emails</option>
-                <option value="Skype">Skype</option>
-                <option value="WatsApp">WhatsApp</option>
-                <option value="Facebook">Facebook</option>
-                <option value="Hangouts">Hangouts</option>
-                <option value="person" selected>In Person</option>
-              </select>
-            </fieldset>
-            <input type="radio" name="news" id="news" />
-            <label for="news">Please send me the newsletter by email.</label>
-            <input type="submit" name="submit" id="submit" value="Submit!" />
-          </fieldset>
-        </form>
-      </div>
-      <!-- Right Column-->
-      <div id="footer-right">
-        <div class="credentials">
-          <h2>My tools</h2>
-          <ul id="footer-tools">
-            <li>
-              <a class="" href="#">
-                <p>PHP</p>
-                <p><img src="images/php-icon.png" alt="php" /></p>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <p>JavaScript</p>
-                <p><img src="images/js-icon.png" alt="javascript" /></p>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <p>MySQL</p>
-                <p><img src="images/mysql-icon.png" alt="mySql" /></p>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <p>BootStrap</p>
-                <p><img src="images/bootstrap-icon.png" alt="BootStrap" /></p>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <p>VS Code</p>
-                <p>
-                  <img src="images/vcode-icon.png" alt="Visual Studio Code" />
-                </p>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <p>GitHub</p>
-                <p><img src="images/git_hub-icon.png" alt="GitHub" /></p>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <p>AffinityPhoto</p>
-                <p>
-                  <img src="images/affinity_photo-icon.png" alt="AffinityPhoto" />
-                </p>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <p>AffinityDesigner</p>
-                <p>
-                  <img src="images/affinity_designer-icon.png" alt="AffinityDesigner" />
-                </p>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="copyright">Copyright © 2019 Tomas Petr</div>
-      </div>
+    <footer>
+        <!-- Melissa's code comes here -->
+        <p style="text-align: center; width: 100%; font-size: 1.5rem; color:aliceblue">Footer's Code Comes
+            Here. </p>
     </footer>
-  </div>
+    <script>
+        // ****HERO IMAGE - sizing ****
+        var heroImg = document.getElementById('hero');
+
+        function heroImgSizeFx() { // determines hero's height based on browser window sizes 
+            var heroImgHeight;
+            var viewPortHeight;
+            if (screen.height <= 700 || screen.width <= 500) { // hero img should take more space on small screen
+                viewPortHeight = screen
+                    .height; // 'screen.height' on tablets doesn't change when scrolling, 'window.innerHeight' does.
+                heroImgHeight = Math.floor(viewPortHeight * 0.7); // Hero's height 
+            } else {
+                viewPortHeight = window.innerHeight; // Hero should take less space on bigger screen
+                heroImgHeight = Math.floor(viewPortHeight * 0.6); // Hero's height 
+            }
+            // heroImg.style.maxHeight = viewerWindowH; // setting Viewer's height in CSS
+            console.log(heroImgHeight);
+            heroImg.style.height = heroImgHeight + "px";
+        }
+        heroImgSizeFx();
+    </script>
 </body>
 
 </html>
