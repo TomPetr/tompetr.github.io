@@ -126,6 +126,12 @@ textarea.req-field {
     max-width: 90%;
 }
 
+#output {
+    color: navy;
+    visibility: hidden;
+    font-size: 1.4rem;
+}
+
 /* *** Loader *** */
 
 #loader {
