@@ -1,275 +1,261 @@
 <!DOCTYPE html>
 
-<html>
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <!-- description -->
-  <title>Google Drive Form | Tomas Petr</title>
-  <!-- stylesheets -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- description -->
+    <title>Google Drive Form | Tomas Petr</title>
+    <!-- stylesheets -->
 
-  <link rel="stylesheet" href="./form-validate.css" />
+    <link rel="stylesheet" href="./form-validate.css" />
 
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <!-- favicon -->
-  <link rel="icon" href="favicon.ico" type="image/ico" sizes="16x16" />
-  <script type="text/javascript" src="./allVerbs.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- favicon -->
+    <link rel="icon" href="favicon.ico" type="image/ico" sizes="16x16" />
 </head>
 
 <body>
-  <div class="page-wrapper">
-    <section id="app">
-      <div id="upld-bgr"></div>
-      <div id="upld-text">please wait</div>
-      <span id="loader"></span>
-      <div class="output"></div>
+    <div class="page-wrapper">
+        <section id="app">
+            <div id="upld-bgr"></div>
+            <div id="upld-text">please wait</div>
+            <span id="loader"></span>
+            <div class="output"></div>
 
-      <form target="_self" name="myForm" method="" id="myForm" width="100%">
-        <fieldset>
-          <legend>Contact Us!!</legend>
+            <form target="_self" name="myForm" method="" id="myForm" width="100%">
+                <fieldset>
+                    <legend>Contact Us!!</legend>
 
-          <input type="text" name="name" id="full-name" value="Tomas" placeholder="Your Name..." class="req imp-el" />
-          <label for="name">*</label>
-          <br /><br />
-          <input type="email" name="email" id="email" value="toteepee@gmail.com" placeholder="Your Email..."
-            class="req imp-el" />
-          <label for="email">*</label>
-          <br /><br />
-          <input type="text" name="company" id="company-name" value="My Company" placeholder="Company..." class="req" />
-          <label for="company-name">*</label>
-          <br /><br />
-          <input type="text" name="title" id="title" value="Sefic" placeholder="Title..." class="req" />
-          <label for="position">*</label>
-          <br /><br />
+                    <input type="text" name="name" id="full-name" value="" placeholder="Your Name..." class="req imp-el" />
+                    <label for="name">*</label>
+                    <br /><br />
+                    <input type="email" name="email" id="email" value="" placeholder="Your Email..." class="req imp-el" />
+                    <label for="email">*</label>
+                    <br /><br />
+                    <input type="text" name="company" id="company-name" value="" placeholder="Company..." class="req" />
+                    <label for="company-name">*</label>
+                    <br /><br />
+                    <input type="text" name="title" id="title" value="" placeholder="Title..." class="req" />
+                    <label for="title">*</label>
+                    <br /><br />
 
-          <input type="text" name="website" id="company-www" placeholder="Company Website..." />
-          <br /><br />
-          <input type="text" name="subject" id="subject" value="The Question" placeholder="Subject..." class="req" />
-          <label for="subject">*</label>
-          <br /><br />
+                    <input type="text" name="website" id="company-www" placeholder="Company Website..." />
+                    <br /><br />
+                    <input type="text" name="subject" id="subject" value="" placeholder="Subject..." class="req" />
+                    <label for="subject">*</label>
+                    <br /><br />
 
-          <textarea name="message" id="message" rows="5" class="req" placeholder="Write us a message..">
-Hey Hello!</textarea>
-          <label for="message">*</label>
+                    <textarea name="message" id="message" rows="5" class="req" placeholder="Write us a message..">
+              </textarea>
+                    <label for="message">*</label>
 
-          <fieldset>
-            <legend>Uload Files</legend>
-            <input type="file" name="myFiles" id="myFiles" multiple accept=".jpg, .jpeg, .png, .zip, .PDF" /><span>(.jpg
-              .jpeg .png .zip .PDF)</span>
-          </fieldset>
-          <br /><br />
-          <div id="g-recaptcha" class="g-recaptcha" data-callback="recaptchaCallback"
-            data-sitekey="6LdogPYUAAAAAN_o4CiEaz4Myd0f3uom0SOUtyji"></div>
-          <br /><br />
-          <input type="submit" name="submit" id="submit" value="Submit!" />
-        </fieldset>
-      </form>
-    </section>
-  </div>
+                    <fieldset>
+                        <legend>Uload Files</legend>
+                        <input type="file" name="myFiles" id="myFiles" multiple accept=".jpg, .jpeg, .png, .zip, .PDF" /><span>(.jpg .jpeg .png .zip .PDF)</span>
+                    </fieldset>
+                    <br /><br />
+                    <div id="g-recaptcha" class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LdogPYUAAAAAN_o4CiEaz4Myd0f3uom0SOUtyji"></div>
+                    <br /><br />
+                    <input type="submit" name="submit" id="submit" value="Submit!" />
+                </fieldset>
+            </form>
+        </section>
+    </div>
 
-  <!-- <script src="./form-valid.js"></script> -->
-  <script>
-    //////////////////////////////////////////////////////
+    <!-- <script src="./form-valid.js"></script> -->
+    <script>
+        //////////////////////////////////////////////////////
 
+        //////////////////////////////////////////////////////
+        var form = document.getElementById("myForm");
+        form.addEventListener("submit", validateFormFx);
 
-    var allFiles = JSON.parse(myObj);
-    console.log("allFiless:");
-    console.log(allFiles);
+        // 1) this block of code gets ahold of all form 's input elements which are rquired to fill in
+        // These elements have CSS class "req" and the code is testing each form's element for this CSS class
 
-    //////////////////////////////////////////////////////
-    const form = document.getElementById("myForm");
-    form.addEventListener("submit", validateFormFx);
+        var allElements = document.forms["myForm"]["elements"]; // HTMLFormControlsCollection of all form's elements
+        var elArr = Array.from(allElements); // converting this collection to an Array
 
-    // 1) this block of code gets ahold of all form 's input elements which are rquired to fill in
-    // These elements have CSS class "req" and the code is testing each form's element for this CSS class
+        // filtering out all the required elements and saving then in new HTMLcollection variable
+        var reqElements = elArr.filter((reqEl) => {
+            // "classList" variable holds array-like object "DOMTokenList", named "classList", list  of all CSS class names of given
+            // "reqEl" element
+            var classList = reqEl["classList"];
 
-    var allElements = document.forms["myForm"]["elements"]; // HTMLFormControlsCollection of all form's elements
-    var elArr = Array.from(allElements); // converting this collection to an Array
-
-    // filtering out all the required elements and saving then in new HTMLcollection variable
-    var reqElements = elArr.filter((reqEl) => {
-      // "classList" variable holds array-like object "DOMTokenList", named "classList", list  of all CSS class names of given
-      // "reqEl" element
-      var classList = reqEl["classList"];
-
-      // looping through all CSS class properties of this "DOMTokenList"
-      for (var i = 0; i < classList.length; i++) {
-        // if there is a CSS class named 'req' add the element which the class belongns to the "reqElements" array
-        if (classList[i] == "req") {
-          return reqEl;
-        }
-      }
-    });
-
-    // ** 2) "validateFormFx" function validates the form if all required fields are filled in & handles the CSS decoration
-    // depending on fields's status, if they are filled in or not
-
-    function validateFormFx() {
-      // prevents the page  to be reloaded if any required field is  empty & form being submitted
-      event.preventDefault();
-      var counter = 0;
-
-      reqElements.forEach((el) => {
-        // if the required input element has the empty value
-        if (el["value"] == "") {
-          //console.log("counter: " + counter);
-          el.classList.add("req-field"); // adds the red border
-          el.nextElementSibling.innerHTML = "*"; // place " * " next to that
-          el.nextElementSibling.style =
-            "color: #d50505; vertical-align: top"; // and set its color as red and moves it vertically
-        } else {
-          el.classList.remove("req-field"); // // removes the red border
-          el.nextElementSibling.innerHTML = "&#10004;"; // replaces " * " with a check mark
-          el.nextElementSibling.style =
-            "color: green; vertical-align: bottom"; // and set its color as green and moves it vertically
-
-          counter += 1; // counting how many "reqElements" were filled out
-        }
-      });
-
-      console.log(`counter is: ${counter}`);
-
-      if (counter === reqElements.length) {
-        // verifyCaptcha();
-        // it's OK the form is being submitted now, all "reqElements" were filled out
-        // but only if reCaptcha was checked
-        if (recaptchaCallback() !== 0) {
-          createMessage();
-        }
-      }
-    }
-
-    function createMessage() {
-      // document.getElementById("g-recaptcha").firstChild.classList.remove("req-reCap");
-      const host = window.location.hostname;
-      console.log(host);
-      // make spinner visible
-      document.getElementById("loader").style.display = "block";
-      document.getElementById("upld-bgr").style.display = "block";
-      document.getElementById("upld-text").style.display = "block";
-      const url =
-        "https://script.google.com/macros/s/AKfycbxm9hR9iruTjl4QxnBWnw9EDskk98l8hcPcNb76lEIRpyUXFmd9/exec";
-      const myFiles = document.getElementById("myFiles");
-      // const form = document.forms["myForm"];
-
-      // FormData objects are used to capture HTML form and submit it using fetch or another network method. We can
-      // either create new FormData(form) from an HTML form, or create a object without a form at all, and then
-      // append fields with methods: formData.
-      const formData = new FormData(form);
-
-      if (myFiles.files[0]) {
-        console.log(myFiles.files);
-        console.log(myFiles.files.length);
-        const reader = new FileReader();
-        console.log("reader before:");
-        console.log(reader);
-
-        const impFiles = myFiles.files[0];
-
-        console.log("impFiles");
-        console.log(impFiles);
-
-        reader.readAsDataURL(impFiles);
-        console.log("reader:");
-        console.log(reader);
-        reader.onloadend = function (event) {
-          const readerData = reader.result.split(","); // the same as const data = event.target.result.split(",");
-          console.log(readerData);
-          const payload = {
-            fileName: impFiles.name,
-            mimeType: readerData[0].match(/:(\w.+);/)[1],
-            data: readerData[1],
-            host: host,
-          };
-
-          console.log("payload:");
-          console.log(payload);
-          fetchRequest(formData, payload, url, form, grecaptcha);
-        };
-      } else {
-        console.log("no reader");
-        const payload = {
-          host: host,
-        };
-        console.log("payload:");
-        console.log(payload);
-        fetchRequest(formData, payload, url, form, grecaptcha);
-      }
-    }
-
-    function fetchRequest(formData, payload, url, form, grecaptcha) {
-      formData.append("payload", JSON.stringify(payload));
-      fetch(url, {
-          method: "POST",
-          body: formData,
-        })
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          console.log("data:");
-          console.log(data);
-          console.log("data.status");
-          console.log(data.status);
-          console.log("Is verification successful?");
-          console.log(data.status);
-          console.log(data.verification);
-          let tempMessage = "";
-
-          tempMessage =
-            "Your email has been received. Ticket ID# " + data.value;
-          document.querySelector(".output").innerHTML = tempMessage;
-          // setting CSS for reg fields back to their original state
-          reqElDeco();
-          // setting form's fields to their original state
-          form.reset();
-          // setting reCpatcha to its original state
-          grecaptcha.reset();
-          // make spinner invisible
-          document.getElementById("loader").style.display = "none";
-          document.getElementById("upld-bgr").style.display = "none";
-          document.getElementById("upld-text").style.display = "none";
-        })
-        .catch((error) => {
-          // setting reCpatcha to its original state
-          grecaptcha.reset();
-          // make spinner invisible
-          document.getElementById("loader").style.display = "none";
-          document.getElementById("upld-bgr").style.display = "none";
-          document.getElementById("upld-text").style.display = "none";
-          tempMessage = "Oooops something went wrong: " + error;
-          document.querySelector(".output").innerHTML = tempMessage;
+            // looping through all CSS class properties of this "DOMTokenList"
+            for (var i = 0; i < classList.length; i++) {
+                // if there is a CSS class named 'req' add the element which the class belongns to the "reqElements" array
+                if (classList[i] == "req") {
+                    return reqEl;
+                }
+            }
         });
-    }
 
-    function recaptchaCallback() {
-      const reCapEval = grecaptcha.getResponse().length;
-      if (reCapEval !== 0) {
-        document
-          .getElementById("g-recaptcha")
-          .firstChild.classList.remove("req-reCap");
-      } else {
-        document
-          .getElementById("g-recaptcha")
-          .firstChild.classList.add("req-reCap");
-      }
-      return reCapEval;
-    }
+        // ** 2) "validateFormFx" function validates the form if all required fields are filled in & handles the CSS decoration
+        // depending on fields's status, if they are filled in or not
 
-    function reqElDeco() {
-      reqElements.forEach((el) => {
-        el.nextElementSibling.innerHTML = "*"; // replaces " check mark" with a "*"
-        el.nextElementSibling.removeAttribute("style"); // and set its color as "red" and moves it vertically
-      });
-    }
-  </script>
+        function validateFormFx() {
+            // prevents the page  to be reloaded if any required field is  empty & form being submitted
+            event.preventDefault();
+            var counter = 0;
 
+            reqElements.forEach((el) => {
+                // if the required input element has the empty value
+                if (el["value"] == "") {
+
+                    el.classList.add("req-field"); // adds the red border
+                    el.nextElementSibling.innerHTML = "*"; // place " * " next to that
+                    el.nextElementSibling.style =
+                        "color: #d50505; vertical-align: top"; // and set its color as red and moves it vertically
+                } else {
+                    el.classList.remove("req-field"); // // removes the red border
+                    el.nextElementSibling.innerHTML = "&#10004;"; // replaces " * " with a check mark
+                    el.nextElementSibling.style =
+                        "color: green; vertical-align: bottom"; // and set its color as green and moves it vertically
+
+                    counter += 1; // counting how many "reqElements" were filled out
+                }
+            });
+
+            console.log(`counter is: ${counter}`);
+
+            if (counter === reqElements.length) {
+
+                // it's OK the form is being submitted now, all "reqElements" were filled out
+                // but only if reCaptcha was checked
+                if (recaptchaCallback() !== 0) {
+                    createMessage();
+                }
+            }
+        }
+
+        function createMessage() {
+
+            var host = window.location.hostname;
+
+            // make spinner visible
+            document.getElementById("loader").style.display = "block";
+            document.getElementById("upld-bgr").style.display = "block";
+            document.getElementById("upld-text").style.display = "block";
+            // test URL
+            var url =
+                "https://script.google.com/macros/s/AKfycbwbnVvgs9ItvAbpeDecPkS8jwVgEDchi2gdkaV2Bd4ViVBkjOVV/exec";
+            // contact form URL
+            // var url =
+            //   "https://script.google.com/macros/s/AKfycbxm9hR9iruTjl4QxnBWnw9EDskk98l8hcPcNb76lEIRpyUXFmd9/exec";
+
+
+            // FormData objects are used to capture HTML form and submit it using fetch or another network method. We can
+            // either create new FormData(form) from an HTML form, or create a object without a form at all, and then
+            // append fields with methods: formData.
+            var formData = new FormData(form);
+
+            if (myFiles.files[0]) {
+                var allFiles = {};
+
+
+                for (let i = 0; i < myFiles.files.length; i++) {
+                    const reader = new FileReader();
+
+                    const impFile = myFiles.files[i];
+
+                    reader.readAsDataURL(impFile);
+
+                    reader.onloadend = function(event) {
+                        const readerData = reader.result.split(","); // the same as var data = event.target.result.split(",");
+
+                        allFiles[i] = {
+                            fileName: impFile.name,
+                            mimeType: readerData[0].match(/:(\w.+);/)[1],
+                            data: readerData[1],
+                        };
+                        if (i == myFiles.files.length - 1) {
+
+                            const payload = {
+                                impFiles: allFiles,
+                                host: host,
+                            };
+
+                            fetchRequest(formData, payload, url, form, grecaptcha);
+                        }
+                    };
+                }
+            } else {
+
+                const payload = {
+                    host: host,
+                };
+
+                fetchRequest(formData, payload, url, form, grecaptcha);
+            }
+        }
+
+        function fetchRequest(formData, payload, url, form, grecaptcha) {
+            formData.append("payload", JSON.stringify(payload));
+
+            fetch(url, {
+                    method: "POST",
+                    body: formData,
+                })
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+
+
+                    let tempMessage = "";
+
+                    tempMessage =
+                        "Your email has been received. Ticket ID# " + data.value;
+                    document.querySelector(".output").innerHTML = tempMessage;
+                    // setting CSS for reg fields back to their original state
+                    reqElDeco();
+                    // setting form's fields to their original state
+                    form.reset();
+                    // setting reCpatcha to its original state
+                    grecaptcha.reset();
+                    // make spinner invisible
+                    document.getElementById("loader").style.display = "none";
+                    document.getElementById("upld-bgr").style.display = "none";
+                    document.getElementById("upld-text").style.display = "none";
+                })
+                .catch((error) => {
+                    // setting reCpatcha to its original state
+                    grecaptcha.reset();
+                    // make spinner invisible
+                    document.getElementById("loader").style.display = "none";
+                    document.getElementById("upld-bgr").style.display = "none";
+                    document.getElementById("upld-text").style.display = "none";
+                    tempMessage = "Oooops something went wrong: " + error;
+                    document.querySelector(".output").innerHTML = tempMessage;
+                });
+        }
+
+        function recaptchaCallback() {
+            var reCapEval = grecaptcha.getResponse().length;
+            if (reCapEval !== 0) {
+                document
+                    .getElementById("g-recaptcha")
+                    .firstChild.classList.remove("req-reCap");
+            } else {
+                document
+                    .getElementById("g-recaptcha")
+                    .firstChild.classList.add("req-reCap");
+            }
+            return reCapEval;
+        }
+
+        function reqElDeco() {
+            reqElements.forEach((el) => {
+                el.nextElementSibling.innerHTML = "*"; // replaces " check mark" with a "*"
+                el.nextElementSibling.removeAttribute("style"); // and set its color as "red" and moves it vertically
+            });
+        }
+    </script>
 </body>
-
-</html>
 
 </html>
