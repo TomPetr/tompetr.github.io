@@ -11,7 +11,7 @@
   <title>Google Drive Form | Tomas Petr</title>
   <!-- stylesheets -->
 
-  <link rel="stylesheet" href="css/form.css" />
+  <link rel="stylesheet" href="./form-validate.css" />
 
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <!-- favicon -->
@@ -24,7 +24,6 @@
       <div id="upld-bgr"></div>
       <div id="upld-text">please wait</div>
       <span id="loader"></span>
-      <div class="output"></div>
 
       <form target="_self" name="myForm" method="" id="myForm" width="100%">
         <fieldset>
@@ -62,6 +61,8 @@
             data-sitekey="6LdogPYUAAAAAN_o4CiEaz4Myd0f3uom0SOUtyji"></div>
           <br /><br />
           <input type="submit" name="submit" id="submit" value="Submit!" />
+          <br /><br />
+          <div id="output">Status Message</div>
         </fieldset>
       </form>
     </section>
@@ -206,11 +207,7 @@
         .then((data) => {
 
 
-          let tempMessage = "";
 
-          tempMessage =
-            "Your email has been received. Ticket ID# " + data.value;
-          document.querySelector(".output").innerHTML = tempMessage;
           // setting CSS for reg fields back to their original state
           reqElDeco();
           // setting form's fields to their original state
@@ -221,6 +218,13 @@
           document.getElementById("loader").style.display = "none";
           document.getElementById("upld-bgr").style.display = "none";
           document.getElementById("upld-text").style.display = "none";
+          // display the status message
+          let statusMessage = "";
+
+          statusMessage =
+            "Your email has been received. Ticket ID# " + data.value;
+          document.querySelector("#output").innerHTML = statusMessage;
+          document.getElementById("output").style = "color: #4E8FF5; visibility: visible";
         })
         .catch((error) => {
           // setting reCpatcha to its original state
@@ -229,8 +233,10 @@
           document.getElementById("loader").style.display = "none";
           document.getElementById("upld-bgr").style.display = "none";
           document.getElementById("upld-text").style.display = "none";
-          tempMessage = "Oooops something went wrong: " + error;
-          document.querySelector(".output").innerHTML = tempMessage;
+          statusMessage = "Oooops something went wrong: " + error;
+          // display the status message
+          document.getElementById("output").style = "color: red; visibility: visible";
+          document.querySelector(".output").innerHTML = statusMessage;
         });
     }
 
