@@ -225,6 +225,7 @@
             "Your email has been received. Ticket ID# " + data.value;
           document.querySelector("#output").innerHTML = statusMessage;
           document.getElementById("output").style = "color: #4E8FF5; visibility: visible";
+          console.log(data);
         })
         .catch((error) => {
           // setting reCpatcha to its original state
